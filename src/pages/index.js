@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-
+// import MarkmapHooks from '../components/markmap-viewer/markmap-hooks'
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -16,8 +16,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            to="/docs/无垢光尊者发愿文">
+            阅读
           </Link>
         </div>
       </div>
@@ -29,9 +29,10 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title}`}
+      description="个人禅修笔记">
       <HomepageHeader />
+      {/* <MarkmapHooks /> */}
     </Layout>
   );
 }
