@@ -8,7 +8,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://zenote.pages.dev',
+  url: 'https://zennote.pages.dev',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -16,7 +16,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'https://github.com/nanqic/', // Usually your GitHub org/user name.
-  projectName: 'zenote', // Usually your repo name.
+  projectName: 'zennote', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -44,7 +44,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/nanqic/zenote/tree/main',
+            'https://github.com/nanqic/zennote/tree/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -81,7 +81,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: '发愿',
+            label: 'docs',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
@@ -90,7 +90,7 @@ const config = {
             position: 'left'
           },
           {
-            href: 'https://github.com/nanqic/zenote',
+            href: 'https://github.com/nanqic/zennote',
             label: 'GitHub',
             position: 'right',
           },
@@ -100,16 +100,20 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: '无垢光尊者发愿文',
+            title: 'Links',
             items: [
               {
-                label: '发愿文',
-                to: '/docs/无垢光尊者发愿文',
+                label: '佛慧法语',
+                to: 'https://www.fohuifayu.com',
+              },
+              {
+                label: '慧灯禅修',
+                to: 'https://www.huidengchanxiu.net',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} zenote, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} zennote, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
