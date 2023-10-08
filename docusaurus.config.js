@@ -65,6 +65,7 @@ const config = {
       },
     ],
   ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -81,18 +82,13 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'docs',
+            label: 'Docs',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            to: '/books/ksjj',
+            to: '/books/喇荣课诵讲解',
             label: '参考法本',
             position: 'left'
-          },
-          {
-            href: 'https://github.com/nanqic/zennote',
-            label: 'GitHub',
-            position: 'right',
           },
         ],
       },
@@ -119,9 +115,38 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 6,
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
     }),
+
   scripts: [
     { src: '/js/global.js', async: false, },
+  ],
+
+  themes: [
+    // ... Your other themes.
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        indexPages: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
+        language: ["en", "zh"],
+        // ```
+      }),
+    ],
   ],
 };
 
