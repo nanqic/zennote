@@ -8,7 +8,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://zennote.pages.dev',
+  url: 'https://blog-nan.hdcxb.net',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -64,6 +64,16 @@ const config = {
         rehypePlugins: [require('./src/plugins/para-anchor')],
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'notes',
+        path: 'notes',
+        routeBasePath: 'notes',
+        sidebarPath: require.resolve('./sidebars.js'),
+        rehypePlugins: [require('./src/plugins/para-anchor')],
+      },
+    ],
   ],
 
   themeConfig:
@@ -88,6 +98,11 @@ const config = {
           {
             to: '/books/喇荣课诵讲解',
             label: '参考法本',
+            position: 'left'
+          },
+          {
+            to: '/books/喇荣课诵讲解',
+            label: '笔记',
             position: 'left'
           },
         ],
