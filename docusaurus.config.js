@@ -101,7 +101,7 @@ const config = {
             position: 'left'
           },
           {
-            to: '/books/喇荣课诵讲解',
+            to: '/notes/xm',
             label: '笔记',
             position: 'left'
           },
