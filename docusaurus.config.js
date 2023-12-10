@@ -141,29 +141,39 @@ const config = {
           autoCollapseCategories: true,
         },
       },
+
     }),
 
-  scripts: [
-    { src: '/js/global.js', async: false, },
-  ],
+  scripts: [{ src: '/js/global.js', async: false }],
 
-  themes: [
-    // ... Your other themes.
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
-      ({
-        // ... Your options.
-        // `hashed` is recommended as long-term-cache of index file is possible.
-        hashed: true,
-        indexPages: true,
-        // For Docs using Chinese, The `language` is recommended to set to:
-        // ```
-        language: ["en", "zh"],
-        // ```
-      }),
-    ],
-  ],
+  themes:
+    ['docusaurus-theme-search-typesense'],
+  themeConfig: {
+    typesense: {
+      // Replace this with the name of your index/collection.
+      // It should match the "index_name" entry in the scraper's "config.json" file.
+      typesenseCollectionName: 'docusaurus-3',
+
+      typesenseServerConfig: {
+        nodes: [
+          {
+            host: 'less.ningway.com',
+            port: 443,
+            protocol: 'https',
+          },
+        ],
+        apiKey: 'FnBBEeF2xFuSPtVhHc5U8GR6uOl7Q9W9FXdpm1qANCUhedzY',
+      },
+
+      // Optional: Typesense search parameters: https://typesense.org/docs/0.24.0/api/search.html#search-parameters
+      typesenseSearchParameters: {},
+
+      // Optional
+      contextualSearch: true,
+    },
+
+  }
+
 };
 
 module.exports = config;
