@@ -35,3 +35,13 @@ ffmpeg -i 1.mp3 -i 2.mp3 -filter_complex amix=inputs=2:duration=first:dropout_tr
 两个音频拼接
 
 ffmpeg -i 1.mp3 -i 2.mp3 -filter_complex '[0:0] [1:0] concat=n=2:v=0:a=1 [a]' -map [a] 3.mp3
+
+## 视频拼接
+- 准备concat.txt文件
+
+```
+file '01.mp4'
+
+file '02.mp4'
+```
+- `ffmpeg -f concat -safe 0 -i concat.txt -c copy -y  "06 浅谈因果关系.mp4"`
