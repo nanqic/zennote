@@ -1,29 +1,22 @@
-'use strict'
+import { visit } from 'unist-util-visit'
 
-const visit = require('unist-util-visit')
-
-function paraAnchor() {
+export default function paraAnchor() {
     return (tree) => {
         let line = 1;
-        const sc = {
-            type: 'window',
-            tagName: 'script',
-            value: 'window.onload = () => { if (location.hash) location = location.href; }',
-        }
+
         visit(tree, 'element', (node) => {
-            const alink = {
-                type: 'element',
-                tagName: 'a',
-                properties: { href: `#p${line}`, name: `p${line}` },
-                children: [{ type: 'text', value: `[p${line}]` }],
-            }
 
             if (node.tagName == 'p') {
+                const alink = {
+                    type: 'element',
+                    tagName: 'a',
+                    properties: { href: `#p${line}`, name: `p${line}` },
+                    children: [{ type: 'text', value: `[p${line}]` }],
+                }
+
                 node.children = [alink, ...node.children]
                 line++
             }
         });
     }
 }
-
-module.exports = paraAnchor

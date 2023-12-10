@@ -1,6 +1,8 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import { themes } from 'prism-react-renderer';
+import paraAnchor from './src/plugins/para-anchor.js';
 
+const lightTheme = themes.github;
+const darkTheme = themes.dracula;
 
 const config = {
   title: '禅修笔记',
@@ -36,8 +38,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // custom plugin
-          rehypePlugins: [require('./src/plugins/para-anchor')],
+          rehypePlugins: [paraAnchor],
         },
         blog: {
           showReadingTime: true,
@@ -61,7 +62,7 @@ const config = {
         path: 'books',
         routeBasePath: 'books',
         sidebarPath: require.resolve('./sidebars.js'),
-        rehypePlugins: [require('./src/plugins/para-anchor')],
+        rehypePlugins: [paraAnchor],
       },
     ],
     [
@@ -71,7 +72,7 @@ const config = {
         path: 'notes',
         routeBasePath: 'notes',
         sidebarPath: require.resolve('./sidebars.js'),
-        rehypePlugins: [require('./src/plugins/para-anchor')],
+        rehypePlugins: [paraAnchor],
       },
     ],
   ],
@@ -127,8 +128,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} zennote, Inc. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: lightTheme,
+        darkTheme: darkTheme,
       },
       tableOfContents: {
         minHeadingLevel: 2,
