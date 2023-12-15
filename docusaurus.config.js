@@ -1,9 +1,6 @@
 import { themes } from 'prism-react-renderer';
 import paraAnchor from './src/plugins/para-anchor.js';
 
-const lightTheme = themes.github;
-const darkTheme = themes.dracula;
-
 const config = {
   title: '禅修笔记',
   tagline: '个人闻思修记录',
@@ -128,8 +125,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} zennote, Inc. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightTheme,
-        darkTheme: darkTheme,
+        theme: themes.github,
+        darkTheme: themes.dracula,
       },
       tableOfContents: {
         minHeadingLevel: 2,
@@ -141,39 +138,36 @@ const config = {
           autoCollapseCategories: true,
         },
       },
+      typesense: {
+        // Replace this with the name of your index/collection.
+        // It should match the "index_name" entry in the scraper's "config.json" file.
+        typesenseCollectionName: 'docusaurus-3',
 
+        typesenseServerConfig: {
+          nodes: [
+            {
+              host: 'less.ningway.com',
+              port: 443,
+              protocol: 'https',
+            },
+          ],
+          apiKey: 'FnBBEeF2xFuSPtVhHc5U8GR6uOl7Q9W9FXdpm1qANCUhedzY',
+        },
+
+        // Optional: Typesense search parameters: https://typesense.org/docs/0.24.0/api/search.html#search-parameters
+        typesenseSearchParameters: {},
+
+        // Optional
+        contextualSearch: true,
+      },
     }),
 
   scripts: [{ src: '/js/global.js', async: false }],
 
   themes:
     ['docusaurus-theme-search-typesense'],
-  themeConfig: {
-    typesense: {
-      // Replace this with the name of your index/collection.
-      // It should match the "index_name" entry in the scraper's "config.json" file.
-      typesenseCollectionName: 'docusaurus-3',
-
-      typesenseServerConfig: {
-        nodes: [
-          {
-            host: 'less.ningway.com',
-            port: 443,
-            protocol: 'https',
-          },
-        ],
-        apiKey: 'FnBBEeF2xFuSPtVhHc5U8GR6uOl7Q9W9FXdpm1qANCUhedzY',
-      },
-
-      // Optional: Typesense search parameters: https://typesense.org/docs/0.24.0/api/search.html#search-parameters
-      typesenseSearchParameters: {},
-
-      // Optional
-      contextualSearch: true,
-    },
-
-  }
-
 };
 
-module.exports = config;
+
+export default config;
+
