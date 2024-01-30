@@ -1,5 +1,5 @@
 ## 防火墙
-iptables -I INPUT -p tcp --dport 8443 -j ACCEPT
+iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
 iptables -I INPUT -p udp --dport 60001:61000 -j ACCEPT
 
 iptables-save

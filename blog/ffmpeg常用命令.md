@@ -40,8 +40,14 @@ ffmpeg -i 1.mp3 -i 2.mp3 -filter_complex '[0:0] [1:0] concat=n=2:v=0:a=1 [a]' -m
 - 准备concat.txt文件
 
 ```
-file '01.mp4'
+file '10-1 开示四谛（一）.mp4'
 
-file '02.mp4'
+file '10-2 开示四谛（二）.mp4'
 ```
-- `ffmpeg -f concat -safe 0 -i concat.txt -c copy -y  "06 浅谈因果关系.mp4"`
+- `ffmpeg -f concat -safe 0 -i concat.txt -c copy -y  "10-1 开示四谛（上）.mp4"`
+
+## 字幕合成
+ffmpeg -i "10-1 开示四谛（上）.mp4" -i "10-1 开示四谛（上）.srt" -map 0 -c:v copy -c:a copy -map 1 -metadata:s:s:2 language=zh_CN  -c:s mov_text outfile.mp4
+
+## 字幕提取
+ffmpeg -i outfile.mp4  -map 0:s:0 subtitle.srt
