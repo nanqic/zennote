@@ -47,7 +47,7 @@ file '10-2 开示四谛（二）.mp4'
 - `ffmpeg -f concat -safe 0 -i concat.txt -c copy -y  "10-1 开示四谛（上）.mp4"`
 
 ## 字幕合成
-ffmpeg -i "10-1 开示四谛（上）.mp4" -i "10-1 开示四谛（上）.srt" -map 0 -c:v copy -c:a copy -map 1 -metadata:s:s:2 language=zh_CN  -c:s mov_text outfile.mp4
+ffmpeg -i "10-2 开示四谛（下）.mp4" -i "10-2 开示四谛（下）.srt" -c copy -c:s mov_text outfile.mp4
 
 ## 字幕提取
 ffmpeg -i outfile.mp4  -map 0:s:0 subtitle.srt
